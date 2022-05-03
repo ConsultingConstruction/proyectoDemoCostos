@@ -7,6 +7,149 @@
     <title>Princial</title>
 </head>
 <body>
-    <h1>Aquí va el front</h1>
+    <h1>Aquí va el front bien bonito</h1>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table >
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 1
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+            </tr>
+
+            {% for OMC23Nivel1 in OMC23Nivel1Todos %}
+
+            <tr>
+                <td style="width: 90px;">{{OMC23Nivel1.Codigo}}</td>
+                <td>{{OMC23Nivel1.descriSpa}}</td>
+                <td>{{OMC23Nivel1.descriEng}}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+
+    </div>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table >
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 2
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th >Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Categoria de OMNICLASS Nivel 1</th>
+            </tr>
+
+            {% for OMC23Nivel2 in OMC23Nivel2Todos %}
+
+            <tr>
+                <td style="width: 90px;">{{OMC23Nivel2.Codigo}}</td>
+                <td>{{OMC23Nivel2.descriSpa}}</td>
+                <td>{{OMC23Nivel2.descriEng}}</td>
+                <td>{{OMC23Nivel2.fk_Omc23N1}}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 3
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Categoria de OMNICLASS Nivel 2</th>
+            </tr>
+            {% for OMC23Nivel3 in OMC23Nivel3Todos %}
+            <tr>
+                <td style="width: 90px;">{{OMC23Nivel3.Codigo}}</td>
+                <td>{{OMC23Nivel3.descriSpa}}</td>
+                <td>{{OMC23Nivel3.descriEng}}</td>
+                <td>{{OMC23Nivel3.fk_Omc23N2}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 4
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Categoria de OMNICLASS Nivel 2</th>
+            </tr>
+            {% for OMC23Nivel4 in OMC23Nivel4Todos %}
+            <tr>
+                <td style="width: 90px;">{{OMC23Nivel4.Codigo}}</td>
+                <td>{{OMC23Nivel4.descriSpa}}</td>
+                <td>{{OMC23Nivel4.descriEng}}</td>
+                <td>{{OMC23Nivel4.fk_Omc23N3}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 5
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Categoria de OMNICLASS Nivel 2</th>
+            </tr>
+            {% for OMC23Nivel5 in OMC23Nivel5Todos %}
+            <tr>
+                <td style="width: 105px;">{{OMC23Nivel5.Codigo}}</td>
+                <td>{{OMC23Nivel5.descriSpa}}</td>
+                <td>{{OMC23Nivel5.descriEng}}</td>
+                <td>{{OMC23Nivel5.fk_Omc23N4}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS NIVEL 6
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Categoria de OMNICLASS Nivel 2</th>
+            </tr>
+            {% for OMC23Nivel6 in OMC23Nivel6Todos %}
+            <tr>
+                <td style="width: 120px;">{{OMC23Nivel6.Codigo}}</td>
+                <td>{{OMC23Nivel6.descriSpa}}</td>
+                <td>{{OMC23Nivel6.descriEng}}</td>
+                <td>{{OMC23Nivel6.fk_Omc23N5}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
 </html>
