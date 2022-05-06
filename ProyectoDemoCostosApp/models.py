@@ -3,6 +3,22 @@ from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
+#OMNICLAS23
+class OmniClass23(models.Model):
+    idOmc23 = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='idOmc23')
+    noMat = models.IntegerField(null=False)
+    Codigo = models.CharField(max_length=18, null=False)
+    descriEng = models.CharField(max_length=120, blank=True, null=True)
+    descriSpa = models.CharField(max_length=120, blank=True, null=True)
+    Nivel = models.IntegerField(null=False)
+
+    def __str__(self):
+        return f'{self.Codigo}: {self.descriSpa}'
+
+    class Meta:
+        db_table = "Omniclass23"
+
+
 
 class OMC23Nivel1(models.Model):
     idOmc23N1 = models.BigAutoField(auto_created=True, primary_key= True, serialize= False, verbose_name='idOmc23N1')
@@ -80,3 +96,4 @@ class OMC23Nivel6(models.Model):
 
     class Meta:
         db_table = "Omc23Nivel6"
+

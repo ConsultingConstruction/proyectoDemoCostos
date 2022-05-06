@@ -7,6 +7,7 @@
     <title>Princial</title>
 </head>
 <body>
+    <!--
     <h1>Aquí va el front bien bonito</h1>
     <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
         <table >
@@ -150,6 +151,32 @@
             </tr>
             {% endfor %}
         </table>
+    </div>-->
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    OMNICLASS TODOS LOS NIVELES
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Número de Material</th>
+                <th>Nivel</th>
+            </tr>
+            {% for OMC23 in listaOMC23 %}
+            <tr>
+                <td style="width: 120px;">{{OMC23.Codigo}}</td>
+                <td>{{OMC23.descriSpa}}</td>
+                <td>{{OMC23.descriEng}}</td>
+                <td>{{OMC23.noMat}}</td>
+                <td>{{OMC23.Nivel}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
+
 </body>
 </html>

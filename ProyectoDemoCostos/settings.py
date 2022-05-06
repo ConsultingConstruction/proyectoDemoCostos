@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ProyectoDemoCostos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME':'C_CDATABASE',
+        'NAME':'ccdatabase1',
         'USER': 'eduardo',
         'PASSWORD': '654321',
         'HOST': 'CC-MX-BIM-005',  
