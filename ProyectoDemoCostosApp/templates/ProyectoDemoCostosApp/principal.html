@@ -166,13 +166,16 @@
                 <th>Número de Material</th>
                 <th>Nivel</th>
             </tr>
-            {% for OMC23 in listaOMC23 %}
+            {% for OMC in listaOMC %}
             <tr>
-                <td style="width: 120px;">{{OMC23.Codigo}}</td>
-                <td>{{OMC23.descriSpa}}</td>
-                <td>{{OMC23.descriEng}}</td>
-                <td>{{OMC23.noMat}}</td>
-                <td>{{OMC23.Nivel}}</td>
+                {% if OMC.Id = id %}
+                    <input type="box" value="checked">
+                {% endif %}
+                <td style="width: 120px;">{{OMC.Codigo}}</td>
+                <td>{{OMC.descriSpa}}</td>
+                <td>{{OMC.descriEng}}</td>
+                <td>{{OMC.numMat}}</td>
+                <td>{{OMC.Nivel}}</td>
             </tr>
             {% endfor %}
         </table>

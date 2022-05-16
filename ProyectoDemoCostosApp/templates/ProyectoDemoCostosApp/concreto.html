@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiales</title>
+</head>
+<body>
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    DATOS
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Dato</th>
+                
+            </tr>
+            {% for dato in Datos %}
+            <tr>
+                <td >->{{dato}}</td>
+            </tr>
+            {% endfor %}
+        </table> 
+        <!-- {{Datos}} -->
+    </div>
+
+</body>
+</html>

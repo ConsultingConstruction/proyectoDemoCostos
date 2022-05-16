@@ -4,6 +4,8 @@ from ProyectoDemoCostosApp import views
 
 urlpatterns = [
     path('', views.principal, name="Principal"),
-    path('nivel/<int:aux_nivel>', views.obtenerNivelEspecifico, name="Nivel")
+    path('nivel/<int:bandera>/<int:aux_nivel>', views.obtenerNivelEspecifico, name="Nivel"),
+    path('material/<int:numMat>', views.obtenerMaterial, name="Material")
+    
 
 ]
