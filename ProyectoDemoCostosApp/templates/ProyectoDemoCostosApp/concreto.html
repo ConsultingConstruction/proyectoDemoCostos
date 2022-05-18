@@ -7,7 +7,256 @@
     <title>Materiales</title>
 </head>
 <body>
-    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+    
+    {% include 'mensajes/mensaje.html' %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="card-header" style="text-align: center;">
+                <strong>Concretos</strong>
+            </div>
+            <div class="card-body card-block">
+                <label>Codigo:<input type="text" value="{{registroOMC.Codigo}}" name="codigoOmc" disabled></label>
+                <label>Consecutivo:<input type="text" value="00001" disabled></label>
+                <label>Descripción en Inglés:<input type="text" value="{{registroOMC.descriEng}}" disabled></label>
+                <label>Descripción en Español:<input type="text" value="{{registroOMC.descriSpa}}" disabled></label>
+                <!--Esfuerzo-->
+                <label>Esfuerzo:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxE in datEsfuerzo%}
+                          <option value="{{auxE.idEsfuerzo}}">
+                           {{auxE}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--ValorEsfuerzo-->
+                <label>fc:
+                    <select class="select-list" name="idValEsf">
+                      <option value ="">Selecciona...</option>
+                        {% for auxVE in datValorEsfuerzo%}
+                          <option value="{{auxVE.idValEsf}}">
+                           {{auxVE}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--UnidadesMedida para ValorEsfuerzo-->
+                <label>Unidad:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxUM in datUnidadesMedida%}
+                          <option value="{{auxUM.idUniMed}}">
+                           {{auxUM}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--TipoResistencia para ValorEsfuerzo-->
+                <label>Tipo Resistencia:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxTR in datTipoResistencia%}
+                          <option value="{{auxTR.idTipoResist}}">
+                           {{auxTR}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--AplPrincipales-->
+                <label>Usos y/o Aplicaciones:
+                    <select class="select-list" name="idAplPrinc">
+                      <option value ="">Selecciona...</option>
+                        {% for auxAP in datAplPrincipales%}
+                          <option value="{{auxAP.idAplPrinc}}">
+                           {{auxAP}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--TMA-->
+                <label>TMA:
+                    <select class="select-list" name="idTma">
+                      <option value ="">Selecciona...</option>
+                        {% for auxTMA in daTma%}
+                          <option value="{{auxTMA.idTma}}">
+                           {{auxTMA}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--UnidadesMedida para TMA-->
+                <label>Unidad:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxUM in datUnidadesMedida%}
+                          <option value="{{auxUM.idUniMed}}">
+                           {{auxUM}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--Revenimiento-->
+                <label>Rev:
+                    <select class="select-list" name="idReven">
+                      <option value ="">Selecciona...</option>
+                        {% for auxRE in datRevenimiento%}
+                          <option value="{{auxRE.idReven}}">
+                           {{auxRE}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--UnidadesMedida para Revenimiento-->
+                <label>Unidad:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxUM in datUnidadesMedida%}
+                          <option value="{{auxUM.idUniMed}}">
+                           {{auxUM}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--Densidad-->
+                <label>Densidad:
+                    <select class="select-list" name="idDensidad">
+                      <option value ="">Selecciona...</option>
+                        {% for auxD in datDensidad%}
+                          <option value="{{auxD.idDensidad}}">
+                           {{auxD}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--UnidadesMedida para Densidad-->
+                <label>Unidad:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxUM in datUnidadesMedida%}
+                          <option value="{{auxUM.idUniMed}}">
+                           {{auxUM}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--SisColocacion-->
+                <label>Sistema de Colocación:
+                    <select class="select-list" name="idSistColoc">
+                      <option value ="">Selecciona...</option>
+                        {% for auxSC in datSisColocacion%}
+                          <option value="{{auxSC.idSistColoc}}">
+                           {{auxSC}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--ClasExposicion-->
+                <label>Clase de Exposición:
+                    <select class="select-list" name="idClasExpo">
+                      <option value ="">Selecciona...</option>
+                        {% for auxCE in datClasExposicion%}
+                          <option value="{{auxCE.idClasExpo}}">
+                           {{auxCE}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--FlujoRev-->
+                <label>Flujo de Revenimiento:
+                    <select class="select-list" name="idFlujoRev">
+                      <option value ="">Selecciona...</option>
+                        {% for auxFR in datFlujoRev%}
+                          <option value="{{auxFR.idFlujoRev}}">
+                           {{auxFR}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <!--UnidadesMedida para FlujoRev-->
+                <label>Unidad:
+                    <select class="select-list">
+                      <option value ="">Selecciona...</option>
+                        {% for auxUM in datUnidadesMedida%}
+                          <option value="{{auxUM.idUniMed}}">
+                           {{auxUM}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+            </div>
+            <div class="card-header" style="margin-top: 1%;">
+                <strong>Caracteristicas Especificas</strong>
+            </div>
+            <div class="card-body card-block">
+                <label>Abrev:</label>
+                {{formCaracEspe.Acronimo}}
+                <label>Modulo de Elasticidad:</label>
+                {{formCaracEspe.modElast}}
+                <label>Edad:
+                    {{formCaracEspe.Edad}}
+                    dias
+                </label>
+                <label>Absorción Capilar:</label>
+                {{formCaracEspe.absorcionCap}}
+                <label>Abrev2:</label>
+                {{formCaracEspe.Acronimo2}}
+                <label>Trabajabilidad Extendida:
+                    {{formCaracEspe.trabaExtend}}
+                    hrs.
+                </label>
+                <label>Clase(NTC-CDMX):</label>
+                {{formCaracEspe.Clase}}
+                <label>Color:</label>
+                {{formCaracEspe.Color}}
+                <label>Comportamiento:</label>
+                {{formCaracEspe.Comportamiento}}
+                <label>Contenido de aire:
+                    {{formCaracEspe.conAire}}
+                    %
+                </label>
+                <label>Contenido de Ion Cloruro:
+                    {{formCaracEspe.conIonClor}}
+                    %
+                </label>
+                <label>Ion Cloruro:
+                    <select class="select-list" name = 'idIonClor'>
+                      <option value ="">Selecciona...</option>
+                        {% for auxIC in datIonCloruro%}
+                          <option value="{{auxIC.idIonClor}}">
+                           {{auxIC}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                    coulomb
+                </label>
+                <label>Tiempo de Prueba del ensayo Ion Cloruro:
+                    {{formCaracEspe.tiempoPrueba}}
+                    dias
+                </label>
+            </div>
+            <div class="card-body card-block" style="margin-top: 1%;">
+                <label>Fibra:
+                    <select class="select-list" name = 'idFibraConcre'>
+                      <option value ="">Selecciona...</option>
+                        {% for auxFC in datFibraConcre%}
+                          <option value="{{auxFC.idFibraCon}}">
+                           {{auxFC}}
+                          </option>
+                        {%endfor%}
+                    </select>
+                </label>
+                <label>Comentarios:<input type="text" name="comentarios" style="width: 20%; height: 60px;"></label>
+                <label>Palabras Clave:<input type="text" name="palabrasCve" style="width: 15%; height: 30px;"></label>
+
+            </div>
+        <div class="card-header" style="margin-top: 1%;" >
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </div>
+        </form>
+    </div>
+    <!-- <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
         <table>
             <tr>
                 <th colspan="4" class="text-center">
@@ -18,14 +267,14 @@
                 <th>Dato</th>
                 
             </tr>
-            {% for dato in Datos %}
+            {% for dato in datValorEsfuerzo %}
             <tr>
                 <td >->{{dato}}</td>
             </tr>
             {% endfor %}
         </table> 
-        <!-- {{Datos}} -->
-    </div>
+         #{{Datos}} 
+    </div> -->
 
 </body>
 </html>

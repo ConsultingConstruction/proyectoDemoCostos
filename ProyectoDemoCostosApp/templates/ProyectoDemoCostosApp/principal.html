@@ -168,9 +168,6 @@
             </tr>
             {% for OMC in listaOMC %}
             <tr>
-                {% if OMC.Id = id %}
-                    <input type="box" value="checked">
-                {% endif %}
                 <td style="width: 120px;">{{OMC.Codigo}}</td>
                 <td>{{OMC.descriSpa}}</td>
                 <td>{{OMC.descriEng}}</td>
