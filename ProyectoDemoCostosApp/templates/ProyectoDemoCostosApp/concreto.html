@@ -17,12 +17,12 @@
             </div>
             <div class="card-body card-block">
                 <label>Codigo:<input type="text" value="{{registroOMC.Codigo}}" name="codigoOmc" disabled></label>
-                <label>Consecutivo:<input type="text" value="00001" disabled></label>
+                <label>Consecutivo:<input type="text" value="{{ultimoRegistro}}" disabled></label>
                 <label>Descripción en Inglés:<input type="text" value="{{registroOMC.descriEng}}" disabled></label>
                 <label>Descripción en Español:<input type="text" value="{{registroOMC.descriSpa}}" disabled></label>
                 <!--Esfuerzo-->
                 <label>Esfuerzo:
-                    <select class="select-list">
+                    <select class="select-list" name = "idEsfuerzo">
                       <option value ="">Selecciona...</option>
                         {% for auxE in datEsfuerzo%}
                           <option value="{{auxE.idEsfuerzo}}">
@@ -44,7 +44,7 @@
                 </label>
                 <!--UnidadesMedida para ValorEsfuerzo-->
                 <label>Unidad:
-                    <select class="select-list">
+                    <select class="select-list" name="idUniMedVE">
                       <option value ="">Selecciona...</option>
                         {% for auxUM in datUnidadesMedida%}
                           <option value="{{auxUM.idUniMed}}">
@@ -55,7 +55,7 @@
                 </label>
                 <!--TipoResistencia para ValorEsfuerzo-->
                 <label>Tipo Resistencia:
-                    <select class="select-list">
+                    <select class="select-list" name="idTipoResist">
                       <option value ="">Selecciona...</option>
                         {% for auxTR in datTipoResistencia%}
                           <option value="{{auxTR.idTipoResist}}">
@@ -88,7 +88,7 @@
                 </label>
                 <!--UnidadesMedida para TMA-->
                 <label>Unidad:
-                    <select class="select-list">
+                    <select class="select-list" name="idUniMedTMA">
                       <option value ="">Selecciona...</option>
                         {% for auxUM in datUnidadesMedida%}
                           <option value="{{auxUM.idUniMed}}">
@@ -110,7 +110,7 @@
                 </label>
                 <!--UnidadesMedida para Revenimiento-->
                 <label>Unidad:
-                    <select class="select-list">
+                    <select class="select-list" name="idUniMedR">
                       <option value ="">Selecciona...</option>
                         {% for auxUM in datUnidadesMedida%}
                           <option value="{{auxUM.idUniMed}}">
@@ -132,7 +132,7 @@
                 </label>
                 <!--UnidadesMedida para Densidad-->
                 <label>Unidad:
-                    <select class="select-list">
+                    <select class="select-list" name="idUniMedD">
                       <option value ="">Selecciona...</option>
                         {% for auxUM in datUnidadesMedida%}
                           <option value="{{auxUM.idUniMed}}">
@@ -176,7 +176,7 @@
                 </label>
                 <!--UnidadesMedida para FlujoRev-->
                 <label>Unidad:
-                    <select class="select-list">
+                    <select class="select-list" name="idUniMedFR">
                       <option value ="">Selecciona...</option>
                         {% for auxUM in datUnidadesMedida%}
                           <option value="{{auxUM.idUniMed}}">
