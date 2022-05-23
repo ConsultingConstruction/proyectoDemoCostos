@@ -1,9 +1,11 @@
 from asyncio.windows_events import NULL
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
+from django.contrib import messages
+from django.db import connection
 from ProyectoDemoCostosApp.models import Acronimo, AguaCemento, OMC23Nivel1, OMC23Nivel2, OMC23Nivel3, OMC23Nivel4, OMC23Nivel5,OMC23Nivel6, OmniClass23, OmniClass41, TipoConsistencia, TipoUniMed
 from ProyectoDemoCostosApp.models import Materiales, Concreto, Esfuerzo, ValorEsfuerzo, TipoResistencia, AplPrincipales, TMA, Revenimiento, Densidad, SistColocacion, ClasExposicion, FlujoRev, CaracEspe, IonCloruro, FibraConcre, UnidadesMedida
 from ProyectoDemoCostosApp.forms import CaracEspeForm
-from django.contrib import messages
+
 # Create your views here.
 
 def principal(request):
@@ -179,3 +181,19 @@ def generarConsecutivo(ultimoConsecutivo):
     consecutivoInt = consecutivoInt + 1
     consecutivoInt = str(consecutivoInt).rjust(5,'0')
     return str(consecutivoInt)
+
+def listarConcreto(request): #FUNCION QUE SE TRAE TODOS LOs CONCRETOS
+    with connection.cursor() as cursor:
+        #cursor.execute("SELECT idConcreto, Codigo FROM Concreto")
+        cursor.execute("SELECT Materiales.idMaterial,Materiales.numMat,Materiales.codigoOmc AS CodigoOmc23,Omniclass23.descriSpa AS Nombre, acroEsf.Sigla AS siglaVE, ValorEsfuerzo.Valor AS ValorEsfuerzo, uniVal.Unidad AS unidadVal, TipoResistencia.Tipo AS TipoResistencia, acroTma.Sigla AS siglaTma, TMA.valTma, acroRev.Sigla AS siglaRev, Revenimiento.valRev, uniRev.Unidad AS unidadRev, CaracEspe.Clase, SistColocacion.tipoSistema FROM Omniclass23 JOIN  Materiales ON fk_Omc23=idOmc23 JOIN Concreto ON fk_Material=idMaterial JOIN ValorEsfuerzo ON fk_ValEsf=idValEsf JOIN Esfuerzo ON Esfuerzo.idEsfuerzo=ValorEsfuerzo.fk_Esfuerzo JOIN UnidadesMedida uniVal ON uniVal.idUniMed=ValorEsfuerzo.fk_UniMed JOIN Acronimo acroEsf ON Esfuerzo.fk_Acronimo=acroEsf.idAcronimo JOIN TipoResistencia ON idTipoResist=fk_TipoResist JOIN TMA ON fk_Tma=idTma JOIN Acronimo acroTma ON Tma.fk_Acronimo=acroTma.idAcronimo JOIN Revenimiento ON fk_Reven=idReven JOIN Acronimo acroRev ON Revenimiento.fk_Acronimo=acroRev.idAcronimo JOIN UnidadesMedida uniRev ON Revenimiento.fk_UniMed=uniRev.idUniMed JOIN CaracEspe ON fk_Concreto=idConcreto JOIN SistColocacion ON fk_SistColoc=idSistColoc")
+        listarConcreto =dictfetchall(cursor)
+    #listarConcreto = Concreto.objects.all()
+
+    return render(request, "ProyectoDemoCostosApp/listadoConcreto.html", {"listadoConcreto": listarConcreto})
+
+def dictfetchall(cursor): 
+    columns = [col[0] for col in cursor.description]
+    return [
+        dict(zip(columns, row))
+        for row in cursor.fetchall()
+    ]

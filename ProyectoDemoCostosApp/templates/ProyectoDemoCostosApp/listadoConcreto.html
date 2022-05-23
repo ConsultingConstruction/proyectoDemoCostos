@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Concretos</title>
+</head>
+<body>
+     <!-- {{listadoConcreto}} -->
+    <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="15" class="text-center">
+                    LISTADO DE CONCRETOS
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Id</th>
+                <th>numMat</th>
+                <th>Codigo OMC23</th>
+                <th>Nombre</th>
+                <th>Sigla</th>
+                <th>Valor</th>
+                <th>Unidad</th>
+                <th>Tipo Resistencia</th>
+                <th>Sigla</th>
+                <th>Valor</th>
+                <th>Sigla</th>
+                <th>valor</th>
+                <th>Unidad</th>
+                <th>Clase</th>
+                <th>tipo Sistema Colocación</th>
+            </tr>
+            {% for concreto in listadoConcreto %}
+            <tr style="text-align: center">
+                <td>{{concreto.idMaterial}}</td>
+                <td>{{concreto.numMat}}</td>
+                <td>{{concreto.CodigoOmc23}}</td>
+                <td>{{concreto.Nombre}}</td>
+                <td>{{concreto.siglaVE}}</td>
+                <td>{{concreto.ValorEsfuerzo}}</td>
+                <td>{{concreto.unidadVal}}</td>
+                <td>{{concreto.TipoResistencia}}</td>
+                <td>{{concreto.siglaTma}}</td>
+                <td>{{concreto.valTma}}</td>
+                <td>{{concreto.siglaRev}}</td>
+                <td>{{concreto.valRev}}</td>
+                <td>{{concreto.unidadRev}}</td>
+                <td>{{concreto.Clase}}</td>
+                <td>{{concreto.tipoSistema}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <!-- <div style="margin-top: 3%; margin-left: 7%; margin-right: 8%;">
+        <table>
+            <tr>
+                <th colspan="4" class="text-center">
+                    LISTADO DE CONCRETOS
+                </th>
+            </tr>
+            <tr style="text-align: left;">
+                <th>Código</th>
+                <th>Descripción en Español</th>
+                <th>Descripción en Inglés</th>
+                <th>Número de Material</th>
+                <th>Nivel</th>
+            </tr>
+            {% for OMC in listaOMC %}
+            <tr>
+                <td style="width: 120px;">{{OMC.Codigo}}</td>
+                <td>{{OMC.descriSpa}}</td>
+                <td>{{OMC.descriEng}}</td>
+                <td>{{OMC.numMat}}</td>
+                <td>{{OMC.Nivel}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div> -->
+
+</body>
+</html>
